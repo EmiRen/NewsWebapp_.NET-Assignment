@@ -1,0 +1,52 @@
+﻿@model News.Models.Article
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="VIP">
+    <h2 id="VIP1">Details</h2>
+
+    <div>
+        <h4 id="VIP1">Articles</h4>
+        <hr />
+        <dl class="dl-horizontal" id="VIP2">
+            <dt>
+                @Html.DisplayNameFor(model => model.Tile)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tile)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Topic)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Topic)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Journalist.JournalistFirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Journalist.JournalistFirstName)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ArticleID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

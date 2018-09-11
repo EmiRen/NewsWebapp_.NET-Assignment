@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<div id="VIP">
+<h2>Article Upload</h2>
+<div>
+    @using (Html.BeginForm("Index", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <span>Select File:</span>
+        <input type="file" name="postedFile" />
+
+        <input type="submit" value="Upload" />
+            <br />
+            <span style="color:green">@ViewBag.Message</span>
+    }
+    <hr />
+    <div>
+        @Html.ActionLink("Back to Creating Your Article", "Create", "Article")
+    </div>
+</div>
+</div>
+
+
+
+

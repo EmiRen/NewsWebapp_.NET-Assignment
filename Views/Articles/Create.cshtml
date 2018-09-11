@@ -1,0 +1,70 @@
+﻿@model News.Models.Article
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="VIP">
+    <h2 id="VIP1">Create Your Article</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Please click the following link to upload paper first :)</h4>
+            <div>
+                @Html.ActionLink("Click me! Upload Your Paper", "Index", "FileUpload")
+            </div>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group" id="VIP2">
+                @Html.LabelFor(model => model.JournalistID, "Journalist", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("JournalistID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.JournalistID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" id="VIP2">
+                @Html.LabelFor(model => model.Tile, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Tile, new { htmlAttributes = new { @class = "form-control", title = "This is where you type in the article title" } })
+                    @Html.ValidationMessageFor(model => model.Tile, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" id="VIP2">
+                @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", @id = "dob", title = "This is where you type in the article date" } })
+                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger", @id = "dob" })
+                </div>
+            </div>
+
+            <div class="form-group" id="VIP2">
+                @Html.LabelFor(model => model.Topic, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Topic, new { htmlAttributes = new { @class = "form-control", title = "This is where you type in the article title" } })
+                    @Html.ValidationMessageFor(model => model.Topic, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" id="VIP2">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

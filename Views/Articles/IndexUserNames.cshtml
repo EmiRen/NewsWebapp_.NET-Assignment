@@ -1,0 +1,62 @@
+﻿@model IEnumerable<News.Models.Article>
+@{
+    ViewBag.Title = "IndexUserNames";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="Inv">
+    <h2 id="Inv1">My Articles</h2>
+
+    <p id="Inv2">
+        @Html.ActionLink("Create New (logged in individual)", "CreateIndividual")
+    </p>
+    <table class="table" id="pList">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tile)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Topic)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Journalist.JournalistFirstName)
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tile)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Topic)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Journalist.JournalistFirstName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ArticleID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ArticleID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ArticleID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p id="VIP2">
+        <button onclick="displayElement()" id="eleButton"> Display the number of elements</button>
+        <br /><br />
+    </p>
+</div>
+

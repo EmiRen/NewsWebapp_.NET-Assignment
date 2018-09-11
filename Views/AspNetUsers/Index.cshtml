@@ -1,0 +1,65 @@
+﻿@model IEnumerable<News.Models.AspNetUsers>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="Inv">
+<h2 id="Inv1">Users Details Index</h2>
+
+<p id="Inv2">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" id="pList" >
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            @*
+    <th>
+        @Html.DisplayNameFor(model => model.UserPhoto)
+    </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+
+                @*<td>
+
+            <img src="@Url.Action("UserPhotos", "Home" )" height="48" width="48" />
+
+
+
+    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |*@
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+</table>
+</div>
